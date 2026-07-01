@@ -6,7 +6,7 @@
 
     <title>AI-Based Personalized Skin Health Recommendation System</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 <nav>
@@ -69,19 +69,19 @@
 
     <h2>Skin Assessment</h2>
 
-    <form>
+  <form action="/recommend" method="POST">
 
-    <input type="text" placeholder="Enter Your Name">
+    <input type="text" name="name" placeholder="Enter Your Name">
 
-    <input type="number" placeholder="Enter Your Age">
+    <input type="number" name="age" placeholder="Enter Your Age">
 
-    <select>
+    <select name="gender">
         <option>Select Gender</option>
         <option>Male</option>
         <option>Female</option>
     </select>
 
-    <select>
+    <select name="skin_type">
         <option>Select Skin Type</option>
         <option>Dry</option>
         <option>Oily</option>
@@ -90,23 +90,23 @@
         <option>Sensitive</option>
     </select>
 
-    <input type="text" placeholder="Enter Your City">
+    <input type="text" name="city" placeholder="Enter Your City">
 
-    <select>
+    <select name="water_intake">
         <option>Daily Water Intake</option>
         <option>Less than 2 Litres</option>
-        <option>2–3 Litres</option>
+        <option>2 - 3 Litres</option>
         <option>More than 3 Litres</option>
     </select>
 
-    <select>
+    <select name="sunscreen_usage">
         <option>Sunscreen Usage</option>
         <option>Always</option>
         <option>Sometimes</option>
         <option>Never</option>
     </select>
 
-    <input type="number" placeholder="Hours Spent Outdoors Per Day">
+    <input type="number" name="outdoor_hours" placeholder="Hours Spent Outdoors Per Day">
 
     <button type="submit">Get Recommendation</button>
 

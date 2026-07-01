@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Health Recommendation</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Skin Health Recommendation</h1>
+
+        <h2>Hello, {{ name }}!</h2>
+
+        <hr><br>
+
+        <h3>Your Details</h3>
+
+        <p><strong>Age:</strong> {{ age }}</p>
+        <p><strong>Gender:</strong> {{ gender }}</p>
+        <p><strong>Skin Type:</strong> {{ skin_type }}</p>
+        <p><strong>City:</strong> {{ city }}</p>
+
+        <br>
+<h3>Risk Level</h3>
+
+{% if risk == "High" %}
+<div class="high-risk">{{ risk }}</div>
+
+{% elif risk == "Medium" %}
+<div class="medium-risk">{{ risk }}</div>
+
+{% else %}
+<div class="low-risk">{{ risk }}</div>
+{% endif %}
+
+        <br>
+
+        <h3>Your Recommendations</h3>
+
+        <ul>
+            {% for item in recommendations %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+
+        <br>
+
+        <a href="/">
+            <button>Go Back</button>
+        </a>
+
+    </div>
+
+</body>
+
+</html>
