@@ -27,26 +27,54 @@
         <p><strong>City:</strong> {{ city }}</p>
 
         <br>
-<h3>Risk Level</h3>
 
-{% if risk == "High" %}
-<div class="high-risk">{{ risk }}</div>
+        <h3>Prediction Result</h3>
 
-{% elif risk == "Medium" %}
-<div class="medium-risk">{{ risk }}</div>
+        {% if risk == "High" %}
+            <p class="high-risk">Estimated UV Risk: {{ risk }}</p>
+            <p><strong>Prediction Confidence:</strong> {{ confidence }}</p>
+            <p>You spend a long time outdoors, so your UV exposure is high.</p>
 
-{% else %}
-<div class="low-risk">{{ risk }}</div>
-{% endif %}
+        {% elif risk == "Medium" %}
+            <p class="medium-risk">Estimated UV Risk: {{ risk }}</p>
+            <p><strong>Prediction Confidence:</strong> {{ confidence }}</p>
+            <p>Your outdoor exposure is moderate, so your UV risk is medium.</p>
 
-        <br>
+        {% else %}
+            <p class="low-risk">Estimated UV Risk: {{ risk }}</p>
+            <p><strong>Prediction Confidence:</strong> {{ confidence }}</p>
+            <p>Your outdoor exposure is low, so your UV risk is low.</p>
+        {% endif %}
+
+        <hr><br>
+
+        <h3>Prediction Based On</h3>
+
+        <p>✔ <strong>Skin Type:</strong> {{ skin_type }}</p>
+        <p>✔ <strong>Water Intake:</strong> {{ water_intake }}</p>
+        <p>✔ <strong>Sunscreen Usage:</strong> {{ sunscreen_usage }}</p>
+        <p>✔ <strong>Hours Outdoors:</strong> {{ outdoor_hours }}</p>
+
+        <hr><br>
 
         <h3>Your Recommendations</h3>
 
         <ul>
             {% for item in recommendations %}
-            <li>{{ item }}</li>
+                <li>{{ item }}</li>
             {% endfor %}
+        </ul>
+
+        <hr><br>
+
+        <h3>General Sun Protection Tips</h3>
+
+        <ul>
+            <li>🌞 Apply sunscreen 20 minutes before going outdoors.</li>
+            <li>💧 Drink at least 2 litres of water every day.</li>
+            <li>🕶️ Wear sunglasses and a cap during peak sunlight hours.</li>
+            <li>⏰ Avoid direct sunlight between 11 AM and 3 PM whenever possible.</li>
+            <li>🧴 Reapply sunscreen every 2–3 hours if you stay outdoors.</li>
         </ul>
 
         <br>

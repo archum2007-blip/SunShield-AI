@@ -22,6 +22,7 @@ def recommend():
     recommendation = []
     risk = "Low"
 
+    # UV Risk Prediction
     if outdoor_hours >= 8:
         risk = "High"
         recommendation.append("Avoid prolonged sun exposure.")
@@ -34,12 +35,15 @@ def recommend():
     else:
         recommendation.append("Maintain your current skincare routine.")
 
+    # Water Intake
     if water_intake == "Less than 2 Litres":
         recommendation.append("Increase your daily water intake.")
 
+    # Sunscreen Usage
     if sunscreen_usage == "Never":
         recommendation.append("Start using sunscreen daily.")
 
+    # Skin Type Recommendation
     if skin_type == "Dry":
         recommendation.append("Use a moisturizer regularly.")
     elif skin_type == "Oily":
@@ -49,6 +53,14 @@ def recommend():
     elif skin_type == "Sensitive":
         recommendation.append("Choose fragrance-free skincare products.")
 
+    # Prediction Confidence
+    if risk == "High":
+        confidence = "95%"
+    elif risk == "Medium":
+        confidence = "85%"
+    else:
+        confidence = "90%"
+
     return render_template(
         "result.html",
         name=name,
@@ -56,7 +68,11 @@ def recommend():
         gender=gender,
         skin_type=skin_type,
         city=city,
+        water_intake=water_intake,
+        sunscreen_usage=sunscreen_usage,
+        outdoor_hours=outdoor_hours,
         risk=risk,
+        confidence=confidence,
         recommendations=recommendation
     )
 
