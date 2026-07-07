@@ -1,7 +1,12 @@
-# SunShield AI
+#smart skin heath and UV protection assistant-sunshield ai
 
 ## Project Overview
 SunShield AI is a web application that provides simple skin health recommendations based on user information such as skin type, sunscreen usage, water intake, and hours spent outdoors.
+
+## 🚀 Live Demo
+
+https://smart-skin-health.onrender.com
+
 
 ## Technologies Used
 - HTML
